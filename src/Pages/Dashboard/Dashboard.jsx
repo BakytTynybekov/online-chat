@@ -1,36 +1,45 @@
-import { Box, Grid } from "@mui/material";
-import React from "react";
-
+import "./dashboard.scss";
 function Dashboard() {
+  const listItemStyle = {
+    background: "#727085",
+    height: "60px",
+    borderRadius: "10px",
+  };
   return (
-    <Box sx={{ width: "100vw", background: "white !important" }}>
-      <Grid container>
-        <Grid
-          container
-          item
-          xs={2}
-          style={{ background: "#104547", padding: "30px" }}
-        >
-          <Grid item style={{ background: "#727072", height: "60px" }}>
-            sdfsd
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          direction="column"
-          item
-          xs={10}
-          style={{ background: "white", color: "black", height: "100vh" }}
-        >
-          <Grid item xs={11}>
-            sfs
-          </Grid>
-          <Grid item xs={1} style={{ background: "#D2D6EF" }}>
-            hello
-          </Grid>
-        </Grid>
-      </Grid>
-    </Box>
+    <div className="chat">
+      <div className="users">
+        <header>
+          <button className="logout">Log out</button>
+        </header>
+        <h1>Peoples</h1>
+        <ul>
+          <li className="user">Bakyt Tynybekov</li>
+          <li className="user">Bakyt Tynybekov</li>
+        </ul>
+      </div>
+      <div className="messages">
+        <div className="messagesFromUsers">
+          <div className="message">
+            <div className="messageInfo">
+              <h3>
+                {" "}
+                bakyt.tynybekov@gmail.com <span>15th April 15:20</span>
+              </h3>
+              <p>Hello</p>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <form action="">
+            <div className="messagesInput">
+              <input type="text" />
+              <button type="submit">Sent</button>
+              <button>Sent Location</button>
+            </div>
+          </form>
+        </footer>
+      </div>
+    </div>
   );
 }
 
