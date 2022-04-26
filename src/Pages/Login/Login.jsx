@@ -1,4 +1,4 @@
-import { Button, Divider, Grid, TextField } from "@mui/material";
+import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
 import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
@@ -8,12 +8,17 @@ import "./login.scss";
 
 function Login() {
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
-  const { loginWithEmailAndPassword, user } = useContext(AuthContext);
-  console.log(user);
+  const { loginWithEmailAndPassword, user, signInWithGoogle, signUpWithEmail } =
+    useContext(AuthContext);
 
   const handleSubmit = (e) => {
     loginWithEmailAndPassword(loginInfo.email, loginInfo.password);
   };
+
+  const handleCreateUser = () => {
+    signUpWithEmail(loginInfo.email, loginInfo.password);
+  };
+
   return (
     <div>
       {!user ? (
@@ -44,8 +49,30 @@ function Login() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button variant="contained" onClick={() => handleSubmit()}>
-                  Login
+                <Button
+                  variant="contained"
+                  fullWidth
+                  onClick={() => handleSubmit()}
+                >
+                  Log in
+                </Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  onClick={() => handleCreateUser()}
+                >
+                  Sign up
+                </Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  onClick={signInWithGoogle}
+                >
+                  Continue with Google
                 </Button>
               </Grid>
             </Grid>

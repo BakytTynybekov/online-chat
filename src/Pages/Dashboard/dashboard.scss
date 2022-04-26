@@ -2,11 +2,10 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 400px auto;
+  grid-template-columns: 300px auto;
 }
 
 .logout {
-  width: 30%;
   margin: 20px;
   padding: 10px 20px;
   display: block;
@@ -17,6 +16,12 @@
   background-color: black;
   color: white;
   border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: whitesmoke;
+    color: black;
+  }
 }
 
 .users {
@@ -28,6 +33,7 @@
     margin: 20px;
     text-align: center;
     color: white;
+    font-size: 40px;
   }
 
   ul {
@@ -43,6 +49,7 @@
       background-color: rgb(216, 216, 216);
       width: 80%;
       margin: 20px auto;
+      font-size: 17px;
     }
   }
 }
@@ -51,11 +58,11 @@
   margin: 30px;
   h3 {
     margin: 10px;
-    font-size: 30px;
+    font-size: 25px;
 
     span {
       color: rgb(172, 167, 167);
-      font-size: 28px;
+      font-size: 23px;
     }
   }
 
