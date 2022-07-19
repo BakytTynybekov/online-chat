@@ -9,6 +9,7 @@ import * as firebaseApp from "../../firebase/firebase";
 function Dashboard() {
   const { logOut, registeredUsers, user, messages } = useContext(AuthContext);
   const [messageTxt, setMessageTxt] = useState("");
+  const [usersState, setUsersState] = useState(false);
 
   const sendMsg = (e) => {
     e.preventDefault();
@@ -56,7 +57,15 @@ function Dashboard() {
   };
   return user ? (
     <div className="chat">
-      <div className="users">
+      <div className="mobile-header">
+        <h2>Online Chat</h2>
+        <div className="hamburger" onClick={() => setUsersState(!usersState)}>
+          <span>
+            <i class="fa-solid fa-bars"></i>{" "}
+          </span>
+        </div>
+      </div>
+      <div className={usersState ? "users activeUsers" : "users"}>
         <header>
           <button className="logout" onClick={() => logOut()}>
             Log out
@@ -91,7 +100,7 @@ function Dashboard() {
             );
           })}
         </div>
-        <footer>
+        <footer className="footer">
           <form action="">
             <div className="messagesInput">
               <input
@@ -99,10 +108,16 @@ function Dashboard() {
                 value={messageTxt}
                 onChange={(e) => setMessageTxt(e.target.value)}
               />
-              <button type="submit" onClick={(e) => sendMsg(e)}>
-                Sent
+              <button
+                className="send"
+                type="submit"
+                onClick={(e) => sendMsg(e)}
+              >
+                Send
               </button>
-              <button onClick={(e) => sendLocation(e)}>Sent Location</button>
+              <button className="location-btn" onClick={(e) => sendLocation(e)}>
+                Sent Location
+              </button>
             </div>
           </form>
         </footer>

@@ -26,12 +26,13 @@ function Login() {
           <h1>Join to the chat</h1>
           <form>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid item fullWidth xs={12}>
                 <TextField
                   style={{}}
                   label="Email"
                   variant="outlined"
                   value={loginInfo.email}
+                  fullWidth
                   onChange={(e) =>
                     setLoginInfo({ ...loginInfo, email: e.target.value })
                   }
@@ -39,6 +40,7 @@ function Login() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  fullWidth
                   label="Password"
                   variant="outlined"
                   type={"password"}
